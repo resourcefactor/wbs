@@ -71,12 +71,12 @@ def validate_date(filters):
 		selected_from_date = datetime.strptime(filters.get('from_date'), '%Y-%m-%d').date() if filters.get('from_date') else ''
 		selected_to_date = datetime.strptime(filters.get('to_date'), '%Y-%m-%d').date() if filters.get('to_date') else ''
 
-		if actual_from_date.get('from_date') and actual_to_date.get('to_date'):
-			if selected_from_date < actual_from_date.get('from_date') or selected_from_date > actual_to_date.get('to_date') or selected_to_date > actual_to_date.get('to_date') or selected_to_date < actual_from_date.get('from_date'):
-				frappe.throw(_('From and To date should be between WBS Settings Duration'))
-		if actual_from_date.get('from_date') and actual_to_date.get('INFINITE'):
-			if selected_from_date < actual_from_date.get('from_date'):
-				frappe.throw(_('From and To date should be between WBS Settings Duration'))
+		# if actual_from_date.get('from_date') and actual_to_date.get('to_date'):
+		# 	if selected_from_date < actual_from_date.get('from_date') or selected_from_date > actual_to_date.get('to_date') or selected_to_date > actual_to_date.get('to_date') or selected_to_date < actual_from_date.get('from_date'):
+		# 		frappe.throw(_('From and To date should be between WBS Settings Duration'))
+		# if actual_from_date.get('from_date') and actual_to_date.get('INFINITE'):
+		# 	if selected_from_date < actual_from_date.get('from_date'):
+		# 		frappe.throw(_('From and To date should be between WBS Settings Duration'))
 
 	return
 
